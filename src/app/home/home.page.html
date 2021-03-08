@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Projeto Quintais
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Projeto Quintais</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <img src="../assets/img/ifpa.png">
+    <div id="comandos">
+      <ion-button expand="block"  [routerLink]="['/entrevista']">
+        <ion-icon name="document-outline"></ion-icon>&nbsp;Nova entrevista
+      </ion-button>
+      <ion-button expand="block">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>&nbsp;Vesualizar Registros
+      </ion-button>
+      <ion-button expand="block">Exportar&nbsp;
+        <ion-icon name="download-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div id="footer">
+    Campus Óbidos/PA - Versão 1.0.0
+  </div>
+</ion-content>

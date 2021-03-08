@@ -1,0 +1,7 @@
+{
+  "name": "pratica1",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
