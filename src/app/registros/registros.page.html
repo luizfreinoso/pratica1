@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Entrevistas Cadastradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Entrevistas registradas
+    </ion-list-header>
+
+    <ion-item lines="inset" *ngFor="let data of Data">
+      <ion-label>
+        <h5>{{data.localiza}}</h5>
+        <p>{{data.nome}}</p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <ion-icon name="trash" style="zoom:2.0" (click)="deleteEntrevista(data.id)"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

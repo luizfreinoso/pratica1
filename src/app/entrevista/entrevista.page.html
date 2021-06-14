@@ -8,6 +8,8 @@
 </ion-header>
 
 <ion-content>
+  
+  <form [formGroup]="mainForm" (ngSubmit)="storeData()">
   <ion-card>
     <ion-item>
       <ion-icon name="pin" slot="start"></ion-icon>
@@ -43,35 +45,35 @@
       <p>Preencha os campos a seguir</p>
       <ion-item>
         <ion-label position="floating">Localização via projeto</ion-label>
-        <ion-input required></ion-input>
+        <ion-input formControlName="localiza" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
-        <ion-input placeholder="Nome Completo" required></ion-input>
+        <ion-input formControlName="nome" placeholder="Nome Completo" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">CPF</ion-label>
-        <ion-input placeholder="Digite somente números" inputmode="numeric" type="number" required></ion-input>
+        <ion-input formControlName="cpf" placeholder="Digite somente números" inputmode="numeric" type="number" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Telefone</ion-label>
-        <ion-input placeholder="Número para contato" inputmode="tel" type="tel"></ion-input>
+        <ion-input formControlName="telefone" placeholder="Número para contato" inputmode="tel" type="tel"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número de residentes</ion-label>
-        <ion-input inputmode="tel" type="tel" required></ion-input>
+        <ion-input formControlName="n_residentes" inputmode="tel" type="tel" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Endereço</ion-label>
-        <ion-input inputmode="text" type="text" required></ion-input>
+        <ion-input formControlName="endereco" inputmode="text" type="text" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número</ion-label>
-        <ion-input inputmode="numeric" type="number" required></ion-input>
+        <ion-input formControlName="numero" inputmode="numeric" type="number" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">DAP</ion-label>
-        <ion-input  required></ion-input>
+        <ion-input formControlName="dap"  required></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -85,152 +87,149 @@
     <ion-card-content>
       <ion-item>
         <ion-label >Cultiva espécie vegetal?</ion-label>
-        <ion-select>
-          <ion-select-option value="sim">Sim</ion-select-option>
-          <ion-select-option value="nao">Não</ion-select-option>
+        <ion-select formControlName="especie_v">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-list>
         <p>Quais espécies cultiva?</p>
         <ion-item>
-          <ion-checkbox></ion-checkbox>&nbsp;
+          <ion-checkbox formControlName="especies" value="frutiferas"></ion-checkbox>&nbsp;
           <ion-label>Frutíferas</ion-label>
         </ion-item>
         <ion-item>
-          <ion-checkbox></ion-checkbox>&nbsp;
+          <ion-checkbox formControlName="especies" value="hortalicas"></ion-checkbox>&nbsp;
           <ion-label>Hortaliças</ion-label>
         </ion-item>
         <ion-item>
-          <ion-checkbox></ion-checkbox>&nbsp;
+          <ion-checkbox formControlName="especies" value="ornamentais"></ion-checkbox>&nbsp;
           <ion-label>Ornamentais</ion-label>
         </ion-item>
         <ion-item>
-          <ion-checkbox></ion-checkbox>&nbsp;
+          <ion-checkbox formControlName="especies" value="medicinais"></ion-checkbox>&nbsp;
           <ion-label>Medicinais</ion-label>
         </ion-item>
       </ion-list>
       <p>Quais as 5 principais espécies cultivadas?</p>
       <ion-item>
-        <ion-input placeholder="Cultivar 1"></ion-input>
+        <ion-input formControlName="especie1" placeholder="Cultivar 1"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Cultivar 2"></ion-input>
+        <ion-input formControlName="especie2" placeholder="Cultivar 2"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Cultivar 3"></ion-input>
+        <ion-input formControlName="especie3" placeholder="Cultivar 3"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Cultivar 4"></ion-input>
+        <ion-input formControlName="especie4" placeholder="Cultivar 4"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Cultivar 5"></ion-input>
+        <ion-input formControlName="especie5" placeholder="Cultivar 5"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label >Qual sistema utiliza?</ion-label>
-        <ion-select>
+        <ion-select formControlName="sistema">
           <ion-select-option value="canteiro suspenso">Canteiro Suspenso </ion-select-option>
-          <ion-select-option value="canteiro térreo">Canteiro térreo</ion-select-option>
+          <ion-select-option value="canteiro terreo">Canteiro térreo</ion-select-option>
           <ion-select-option value="materiais alternativos">Materiais alternativos</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label >Tem interesse em participar do projeto?</ion-label>
-        <ion-select>
-          <ion-select-option value="sim">Sim</ion-select-option>
-          <ion-select-option value="nao">Não</ion-select-option>
+        <ion-select formControlName="interesse">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <p>Construção do croqui da área disponível (Escala 1:200; Desenho; Localização do ponto de água; Localização das espécies cultivadas; Demais informações que achar importante)</p>
       <ion-item>
         <ion-label position="floating">Área cultivada</ion-label>
-        <ion-input inputmode="numeric" type="numeric" placeholder="Em Metros quadrados" required></ion-input>
+        <ion-input formControlName="area_cultivo" inputmode="numeric" type="numeric" placeholder="Em Metros quadrados" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Área disponível</ion-label>
-        <ion-input inputmode="numeric" type="numeric" placeholder="Em Metros quadrados" required></ion-input>
+        <ion-input formControlName="area_disp" inputmode="numeric" type="numeric" placeholder="Em Metros quadrados" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label >Característica geral - solo</ion-label>
-        <ion-select>
+        <ion-select formControlName="solo">
           <ion-select-option value="arenoso">Arenoso</ion-select-option>
-          <ion-select-option value="Terra preta">Terra preta</ion-select-option>
+          <ion-select-option value="terra preta">Terra preta</ion-select-option>
           <ion-select-option value="compactado">Compactado</ion-select-option>
           <ion-select-option value="exposto">Exposto</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label >Faz uso de compostagem?</ion-label>
-        <ion-select>
-          <ion-select-option value="nao faz compostagem">Não faz</ion-select-option>
-          <ion-select-option value="arenoso">Arenoso</ion-select-option>
-          <ion-select-option value="Terra preta">Terra preta</ion-select-option>
-          <ion-select-option value="compactado">Compactado</ion-select-option>
-          <ion-select-option value="exposto">Exposto</ion-select-option>
+        <ion-select formControlName="compostagem">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Se faz outro tipode compostagem, qual?</ion-label>
-        <ion-input inputmode="text" type="text"></ion-input>
+        <ion-input formControlName="compostagem_outro" inputmode="text" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label >Fonte de água</ion-label>
-        <ion-select>
-          <ion-select-option value="COSANPA">COSANPA</ion-select-option>
-          <ion-select-option value="Microssistemas comunitários">Microssistemas comunitários </ion-select-option>
-          <ion-select-option value="poço">Poço</ion-select-option>
+        <ion-select formControlName="agua">
+          <ion-select-option value="cosanpa">COSANPA</ion-select-option>
+          <ion-select-option value="microssistemas comunitarios">Microssistemas comunitários </ion-select-option>
+          <ion-select-option value="poco">Poço</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label >Características do reservatório</ion-label>
-        <ion-select>
-          <ion-select-option value="Caixa d´água suspensa">Caixa d´água suspensa</ion-select-option>
-          <ion-select-option value="Térreo">Térreo</ion-select-option>
-          <ion-select-option value="Não possui">Não possui</ion-select-option>
+        <ion-select formControlName="reservatorio_c">
+          <ion-select-option value="caixa dagua suspensa">Caixa d´água suspensa</ion-select-option>
+          <ion-select-option value="terreo">Térreo</ion-select-option>
+          <ion-select-option value="nao possui">Não possui</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label >Permite a instalação de Sistema de irrigação?</ion-label>
-        <ion-select>
-          <ion-select-option value="sim">Sim</ion-select-option>
-          <ion-select-option value="nao">Não</ion-select-option>
+        <ion-select formControlName="per_sis_irrigacao">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label >Ponto de água estratégico para o quintal?</ion-label>
-        <ion-select>
-          <ion-select-option value="sim">Sim</ion-select-option>
-          <ion-select-option value="nao">Não</ion-select-option>
+        <ion-select formControlName="ponto_agua_quintal">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label >Permite a instalação de reservatório?</ion-label>
-        <ion-select>
-          <ion-select-option value="sim">Sim</ion-select-option>
-          <ion-select-option value="nao">Não</ion-select-option>
+        <ion-select formControlName="per_reserva">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Situação: </ion-label>
-        <ion-input inputmode="text" type="text"></ion-input>
+        <ion-input formControlName="situacao" inputmode="text" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label >Tem criação de animais?</ion-label>
-        <ion-select>
-          <ion-select-option value="sim">Sim</ion-select-option>
-          <ion-select-option value="nao">Não</ion-select-option>
+        <ion-select formControlName="animais">
+          <ion-select-option value="1">Sim</ion-select-option>
+          <ion-select-option value="0">Não</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Espécie/quantidade 1</ion-label>
-        <ion-input inputmode="text" type="text"></ion-input>
+        <ion-input formControlName="especie_animal1" inputmode="text" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Espécie/quantidade 2</ion-label>
-        <ion-input inputmode="text" type="text"></ion-input>
+        <ion-input formControlName="especie_animal2" inputmode="text" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Espécie/quantidade 3</ion-label>
-        <ion-input inputmode="text" type="text"></ion-input>
+        <ion-input formControlName="especie_animal3" inputmode="text" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Caracterização da instalação</ion-label>
@@ -240,9 +239,10 @@
         <ion-label position="floating">Data e hora da entrevista</ion-label>
         <ion-input inputmode="date" type="datetime-local"></ion-input>
       </ion-item>
-      <ion-button expand="block">
+      <ion-button name="criar" shape="full" type="submit" expand="block">
         <ion-icon name="receipt-outline"></ion-icon>&nbsp;Registrar entrevista
       </ion-button>
     </ion-card-content>
   </ion-card>
+  </form>
 </ion-content>
